@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <!-- Header -->
@@ -52,7 +53,7 @@
                     <span class="countdown-label">Seconds</span>
                 </div>
             </div>
-            <h1 class="hero-title">Celebrate Nowruz with us!</h1>
+            <h1 class="hero-title">Celebrate <span id="nowruz-text">Nowruz</span> with us!</h1>
             <p class="hero-subtitle">Celebrate the Iranian New Year with ISA @ Georgia Tech</p>
             <div class="hero-buttons">
                 <a href="#" class="btn btn-primary">Buy Tickets</a>
@@ -138,16 +139,16 @@
                 <div class="about-slideshow">
                     <div class="slideshow-container">
                         <div class="slide active">
-                            <img src="img/slideshow/nowruz1.jpg" alt="Nowruz Celebration 1">
+                            <img src="img/last_year_photos/photo1.jpg" alt="Nowruz Celebration 1">
                         </div>
                         <div class="slide">
-                            <img src="img/slideshow/nowruz2.jpg" alt="Nowruz Celebration 2">
+                            <img src="img/last_year_photos/photo2.jpg" alt="Nowruz Celebration 2">
                         </div>
                         <div class="slide">
-                            <img src="img/slideshow/nowruz3.jpg" alt="Nowruz Celebration 3">
+                            <img src="img/last_year_photos/photo3.jpg" alt="Nowruz Celebration 3">
                         </div>
                         <div class="slide">
-                            <img src="img/slideshow/nowruz4.jpg" alt="Nowruz Celebration 4">
+                            <img src="img/last_year_photos/photo4.jpg" alt="Nowruz Celebration 4">
                         </div>
                         <button class="slide-btn prev-btn">&#10094;</button>
                         <button class="slide-btn next-btn">&#10095;</button>
@@ -316,6 +317,22 @@
         </div>
     </section>
 
+    <!-- Instagram Section -->
+    <section id="instagram" class="section instagram-section">
+        <div class="container">
+            <h2 class="section-title">Follow Us on Instagram</h2>
+            <div class="instagram-content">
+                <a href="https://www.instagram.com/gatech.isa/" target="_blank" class="instagram-profile">
+                    <div class="instagram-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </div>
+                    <span class="instagram-handle">@gatech.isa</span>
+                    <span class="instagram-cta">View our latest posts and updates</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="section contact-section">
         <div class="container">
@@ -328,11 +345,6 @@
                         <a href="mailto:dsaedi3@gatech.edu">dsaedi3@gatech.edu</a>
                     </div>
                 </div>
-                <div class="social-links">
-                    <a href="#" target="_blank" class="social-link" title="Instagram">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                    </a>
-                </div>
             </div>
         </div>
     </section>
@@ -341,13 +353,10 @@
     <footer class="footer">
         <div class="container">
             <p>&copy; 2025 Iranian Student Association @ Georgia Tech. All rights reserved.</p>
+            <p>Designed with <span class="heart">&#10084;</span> by <a href="https://daniel-saeedi.github.io/" target="_blank">Daniel Saeedi</a></p>
         </div>
     </footer>
 
-    <!-- Side Banner -->
-    <div class="side-banner">
-        Feedback
-    </div>
 
     <script src="js/main.js"></script>
 </body>

@@ -232,6 +232,36 @@ function initFAQ() {
     });
 }
 
+// Toggle Nowruz text between English and Farsi with animation
+function initNowruzToggle() {
+    const nowruzText = document.getElementById('nowruz-text');
+    if (!nowruzText) return;
+
+    const texts = ['Nowruz', 'نوروز'];
+    let currentIndex = 0;
+
+    // Set up initial structure
+    nowruzText.innerHTML = `<span class="text-current">${texts[currentIndex]}</span><span class="text-next"></span>`;
+
+    setInterval(() => {
+        const nextIndex = (currentIndex + 1) % texts.length;
+        const textNext = nowruzText.querySelector('.text-next');
+        textNext.textContent = texts[nextIndex];
+
+        // Trigger animation
+        nowruzText.classList.add('switching');
+
+        // After animation completes, reset
+        setTimeout(() => {
+            nowruzText.classList.remove('switching');
+            const textCurrent = nowruzText.querySelector('.text-current');
+            textCurrent.textContent = texts[nextIndex];
+            textNext.textContent = '';
+            currentIndex = nextIndex;
+        }, 500);
+    }, 5000);
+}
+
 // Initialize on DOM load
 document.addEventListener('DOMContentLoaded', () => {
     generatePattern();
@@ -239,4 +269,5 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateCountdown, 1000);
     initSlideshow();
     initFAQ();
+    initNowruzToggle();
 });

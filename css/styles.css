@@ -151,6 +151,44 @@ body {
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
 }
 
+/* Nowruz text toggle animation */
+#nowruz-text {
+    display: inline-block;
+    position: relative;
+    vertical-align: baseline;
+    min-width: 4.1em;
+    text-align: center;
+}
+
+#nowruz-text .text-current,
+#nowruz-text .text-next {
+    display: block;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+#nowruz-text .text-current {
+    position: relative;
+}
+
+#nowruz-text .text-next {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+#nowruz-text.switching .text-current {
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+#nowruz-text.switching .text-next {
+    transform: translateY(0);
+    opacity: 1;
+}
+
 .hero-subtitle {
     font-size: 18px;
     color: white;
@@ -748,6 +786,65 @@ body {
     color: #555;
 }
 
+/* Instagram Section */
+.instagram-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.instagram-content {
+    display: flex;
+    justify-content: center;
+}
+
+.instagram-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    padding: 40px 60px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.instagram-profile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+}
+
+.instagram-icon {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: transform 0.3s;
+}
+
+.instagram-profile:hover .instagram-icon {
+    transform: scale(1.1);
+}
+
+.instagram-icon svg {
+    color: #fff;
+}
+
+.instagram-handle {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.instagram-cta {
+    font-size: 14px;
+    color: #666;
+}
+
 /* Contact Section */
 .contact-section {
     background: #27ae60;
@@ -824,6 +921,21 @@ body {
     opacity: 0.8;
 }
 
+.footer a {
+    color: #fff;
+}
+
+.footer .instagram-link {
+    font-size: 32px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    display: inline-block;
+}
+
+.footer .instagram-link:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
+}
+
 /* Responsive for new sections */
 @media (max-width: 992px) {
     .about-content {
@@ -858,5 +970,30 @@ body {
 
     .slide img {
         height: 250px;
+    }
+}
+
+/* Beating Heart Animation */
+.heart {
+    color: #e74c3c;
+    display: inline-block;
+    animation: heartbeat 1.2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    14% {
+        transform: scale(1.3);
+    }
+    28% {
+        transform: scale(1);
+    }
+    42% {
+        transform: scale(1.3);
+    }
+    70% {
+        transform: scale(1);
     }
 }
