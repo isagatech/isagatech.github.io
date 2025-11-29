@@ -31,7 +31,11 @@ body {
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 40px;
+    gap: 30px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    padding: 12px 25px;
+    border-radius: 50px;
 }
 
 .nav-menu a {
@@ -65,21 +69,21 @@ body {
 
 .hero-title {
     font-size: 48px;
-    color: #27ae60;
+    color: white;
     margin-bottom: 20px;
     font-weight: 700;
 }
 
 .hero-subtitle {
     font-size: 18px;
-    color: #333;
+    color: white;
     margin-bottom: 40px;
 }
 
 .scroll-indicator {
     width: 30px;
     height: 50px;
-    border: 2px solid #333;
+    border: 2px solid white;
     border-radius: 20px;
     margin: 0 auto;
     position: relative;
@@ -93,7 +97,7 @@ body {
     transform: translateX(-50%);
     width: 4px;
     height: 10px;
-    background: #333;
+    background: white;
     border-radius: 2px;
     animation: scroll 2s infinite;
 }
@@ -132,6 +136,10 @@ body {
     position: relative;
     padding: 80px 50px;
     overflow: visible;
+
+    margin-top: -258px;
+    z-index: -99;
+    height: 500px;
 }
 
 .grass-divider {
