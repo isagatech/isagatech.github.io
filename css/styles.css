@@ -547,7 +547,7 @@ body {
 
     .header-buttons,
     .header nav {
-        display: none;
+        display: none !important;
     }
 
     .hamburger {
@@ -590,13 +590,7 @@ body {
     }
 
     .hero-buttons {
-        gap: 10px;
-        margin-bottom: 25px;
-    }
-
-    .hero-buttons .btn {
-        padding: 10px 20px;
-        font-size: 13px;
+        display: none;
     }
 
     .greeting {
