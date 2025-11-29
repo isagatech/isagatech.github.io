@@ -69,17 +69,86 @@ body {
     text-align: center;
 }
 
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.countdown-value {
+    font-size: 48px;
+    font-weight: 700;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.countdown-label {
+    font-size: 14px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+}
+
 .hero-title {
     font-size: 48px;
     color: white;
     margin-bottom: 20px;
     font-weight: 700;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .hero-subtitle {
     font-size: 18px;
     color: white;
     margin-bottom: 40px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.btn {
+    padding: 14px 32px;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: #3498db;
+    color: white;
+    border: 2px solid #3498db;
+}
+
+.btn-primary:hover {
+    background: #2980b9;
+    border-color: #2980b9;
+}
+
+.btn-secondary {
+    background: #27ae60;
+    color: white;
+    border: 2px solid #27ae60;
+}
+
+.btn-secondary:hover {
+    background: #1e8449;
+    border-color: #1e8449;
 }
 
 .scroll-indicator {
@@ -285,6 +354,18 @@ body {
 
     .nav-menu a {
         font-size: 12px;
+    }
+
+    .countdown {
+        gap: 15px;
+    }
+
+    .countdown-value {
+        font-size: 32px;
+    }
+
+    .countdown-label {
+        font-size: 10px;
     }
 
     .hero-title {
