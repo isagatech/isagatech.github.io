@@ -622,6 +622,31 @@ body {
     border: 4px solid #27ae60;
 }
 
+/* Current board has full-width photos */
+.team-grid:not(.previous-board) .team-member {
+    padding: 0;
+    overflow: hidden;
+}
+
+.team-grid:not(.previous-board) .member-photo {
+    width: 100%;
+    height: 350px;
+    margin: 0;
+    border-radius: 0;
+    border: none;
+}
+
+.team-grid:not(.previous-board) .member-info {
+    padding: 20px;
+}
+
+.member-description {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
 .member-photo img {
     width: 100%;
     height: 100%;
