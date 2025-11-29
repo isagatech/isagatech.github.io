@@ -110,13 +110,19 @@ function generatePattern() {
     patternContainer.appendChild(svg);
 }
 
-// Header scroll effect
+// Header scroll effect - sticky after grass-divider
 window.addEventListener('scroll', () => {
     const header = document.querySelector('.header');
-    if (window.scrollY > 50) {
-        header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-    } else {
-        header.style.boxShadow = 'none';
+    const grassDivider = document.querySelector('.grass-divider');
+
+    if (grassDivider) {
+        const grassDividerBottom = grassDivider.getBoundingClientRect().top + window.scrollY + grassDivider.offsetHeight;
+
+        if (window.scrollY > grassDividerBottom) {
+            header.classList.add('sticky');
+        } else {
+            header.classList.remove('sticky');
+        }
     }
 });
 
@@ -139,9 +145,98 @@ function updateCountdown() {
     }
 }
 
+// Slideshow functionality
+function initSlideshow() {
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+
+    if (!slides.length) return;
+
+    let currentSlide = 0;
+    let autoSlideInterval;
+
+    function showSlide(index) {
+        if (index >= slides.length) index = 0;
+        if (index < 0) index = slides.length - 1;
+
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+        currentSlide = index;
+    }
+
+    function nextSlide() {
+        showSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+        showSlide(currentSlide - 1);
+    }
+
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(nextSlide, 5000);
+    }
+
+    function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            resetAutoSlide();
+        });
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            resetAutoSlide();
+        });
+    }
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            showSlide(index);
+            resetAutoSlide();
+        });
+    });
+
+    startAutoSlide();
+}
+
+// FAQ accordion functionality
+function initFAQ() {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            const faqItem = question.parentElement;
+            const isActive = faqItem.classList.contains('active');
+
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Open clicked item if it wasn't already active
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        });
+    });
+}
+
 // Initialize on DOM load
 document.addEventListener('DOMContentLoaded', () => {
     generatePattern();
     updateCountdown();
     setInterval(updateCountdown, 1000);
+    initSlideshow();
+    initFAQ();
 });
