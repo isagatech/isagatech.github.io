@@ -262,6 +262,39 @@ function initNowruzToggle() {
     }, 5000);
 }
 
+// Mobile menu functionality
+function initMobileMenu() {
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+
+    if (!hamburger || !mobileMenuOverlay) return;
+
+    function openMenu() {
+        mobileMenuOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+        mobileMenuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    hamburger.addEventListener('click', openMenu);
+    mobileMenuClose.addEventListener('click', closeMenu);
+    mobileMenuOverlay.addEventListener('click', (e) => {
+        if (e.target === mobileMenuOverlay) {
+            closeMenu();
+        }
+    });
+
+    // Close menu when clicking a nav link
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+}
+
 // Initialize on DOM load
 document.addEventListener('DOMContentLoaded', () => {
     generatePattern();
@@ -270,4 +303,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initSlideshow();
     initFAQ();
     initNowruzToggle();
+    initMobileMenu();
 });
