@@ -110,7 +110,7 @@ function generatePattern() {
     patternContainer.appendChild(svg);
 }
 
-// Header scroll effect - sticky after grass-divider
+// Header scroll effect - sticky after grass-divider with section-based colors
 window.addEventListener('scroll', () => {
     const header = document.querySelector('.header');
     const grassDivider = document.querySelector('.grass-divider');
@@ -120,11 +120,61 @@ window.addEventListener('scroll', () => {
 
         if (window.scrollY > grassDividerBottom) {
             header.classList.add('sticky');
+            updateHeaderColor();
         } else {
             header.classList.remove('sticky');
+            removeHeaderColors();
         }
     }
 });
+
+// Section color mapping
+const sectionColors = {
+    'about': 'header-about',
+    'haft-seen': 'header-haftseen',
+    'chaharshanbe': 'header-chaharshanbe',
+    'yalda': 'header-yalda',
+    'people': 'header-people',
+    'faq': 'header-faq',
+    'instagram': 'header-instagram',
+    'contact': 'header-contact'
+};
+
+// Remove all header color classes
+function removeHeaderColors() {
+    const header = document.querySelector('.header');
+    Object.values(sectionColors).forEach(colorClass => {
+        header.classList.remove(colorClass);
+    });
+}
+
+// Update header color based on current section
+function updateHeaderColor() {
+    const header = document.querySelector('.header');
+    const headerHeight = header.offsetHeight;
+    const scrollPosition = window.scrollY + headerHeight + 50;
+
+    // Get all sections
+    const sections = document.querySelectorAll('section[id]');
+    let currentSection = null;
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionBottom = sectionTop + section.offsetHeight;
+
+        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+            currentSection = section.id;
+        }
+    });
+
+    // Remove all color classes first
+    removeHeaderColors();
+
+    // Add the appropriate color class
+    if (currentSection && sectionColors[currentSection]) {
+        header.classList.add(sectionColors[currentSection]);
+    }
+}
 
 // Countdown timer for Nowruz - March 21, 2026
 function updateCountdown() {
